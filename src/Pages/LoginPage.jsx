@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import s from '../ContactForm/ContactForm.module.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login} from '../redux/auth/authOperations';
 import {FormControl, InputLabel, OutlinedInput, Button, Box} from '@mui/material';
 // import { VisibilityOff, Visibility } from '@mui/icons-material';
@@ -77,25 +77,3 @@ export default function LoginPage() {
           </Box>
         )
 }
-
-{/* <label className={s.label}>Email
-              <input className={s.input}
-  type="email"
-  name="email"
-//   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-//   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                required
-                value={email}
-                onChange={handleEmailChange}
-/>
-         </label>  */}
-            {/* <label className={s.label}>Password
-            <input className={s.input}
-  type="password"
-  name="password"
-//   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-//   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required
-                value={password}
-                onChange={handlePasswordChange}
-              /></label>  */}

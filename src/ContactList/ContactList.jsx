@@ -1,7 +1,7 @@
-import s from './ContactList.module.css';
+// import s from './ContactList.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {removeContact} from '../redux/contacts/contactsOperation';
-import { Button, ListItem, ListItemAvatar, Avatar, IconButton, List, Box, Typography } from '@mui/material';
+import {  ListItem, ListItemAvatar, Avatar, IconButton, List, Box, Typography } from '@mui/material';
 import { PersonRemoveOutlined, ContactPhoneOutlined} from '@mui/icons-material';
 
 export default function ContactList() {

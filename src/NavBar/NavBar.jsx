@@ -1,10 +1,10 @@
 import AuthNav from 'AuthNav/AuthNav';
 import  HomeNav  from 'HomeNavigation/HomeNav';
 import UserMenu from 'UserMenu';
-import { getLoggedIn, getIsLoading } from 'redux/auth';
+import { getLoggedIn } from 'redux/auth';
 import { useSelector } from 'react-redux';
 import s from './NavBar.module.css';
-import ResponsiveAppBar from 'MIUAppBar/muiAppBar';
+// import ResponsiveAppBar from 'MIUAppBar/muiAppBar';
 
 export default function NavBar() {
 const LoggedIn = useSelector(getLoggedIn);
