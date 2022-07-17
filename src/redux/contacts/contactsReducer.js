@@ -10,8 +10,11 @@ const items = createReducer([], {
     },
 
 [removeContact.fulfilled]: (state, action) => {
-   return state.filter(({id}) => id !== action.payload)
-}
+   return [...state.filter(({id}) => id !== action.payload)]
+// const contactId = action.payload;
+// const idx = state.contacts.findIndex((item) => item.id === contactId);
+// state.contacts.splice(idx, 1);
+},
 
 
 })

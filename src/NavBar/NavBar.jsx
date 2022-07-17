@@ -1,16 +1,27 @@
-import { NavLink } from 'react-router-dom';
-
+import AuthNav from 'AuthNav/AuthNav';
+import  HomeNav  from 'HomeNavigation/HomeNav';
+import UserMenu from 'UserMenu';
+import { getLoggedIn, getIsLoading } from 'redux/auth';
+import { useSelector } from 'react-redux';
 import s from './NavBar.module.css';
+import ResponsiveAppBar from 'MIUAppBar/muiAppBar';
 
 export default function NavBar() {
+const LoggedIn = useSelector(getLoggedIn);
+// const isLoading = useSelector(getIsLoading);
+
     return (  
-        <>
+        <header>
     <nav className={s.nav}>
-        <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/">Home</NavLink>
-        <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/register">Sign up</NavLink>
-        <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/login">Login</NavLink>
+        {/* <ResponsiveAppBar/> */}
+        <HomeNav/>
+        {!LoggedIn ? <AuthNav/> : <UserMenu/>}
+        {/* {LoggedIn ? <UserMenu/> : <AuthNav/>} */}
+       
+        
     </nav>
-            </>
+    </header>
+
     )
    
 }

@@ -10,3 +10,12 @@
   width: 150px;
   margin-top: 15px;
 }
+
+
+  .title {
+    display: inline-block;
+    color: tomato;
+    margin-bottom: 20px;
+    text-align: center;
+}
+

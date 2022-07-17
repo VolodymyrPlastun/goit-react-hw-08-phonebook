@@ -1,3 +1,3 @@
-export * from './auth-slice';
-export * from './auth-operations';
-export * from './auth-selectors';
+export * from './authSlice';
+export * from './authOperations';
+export * from './authSelectors';

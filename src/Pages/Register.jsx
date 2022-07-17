@@ -2,7 +2,9 @@ import { useState } from 'react';
 import s from '../ContactForm/ContactForm.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 // import { addContact} from '../redux/contactsOperation';
-import { register } from 'redux/auth';
+import { register } from '../redux/auth/authOperations';
+import { FormControl, InputLabel, OutlinedInput, Button, Box} from '@mui/material';
+
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -42,12 +44,49 @@ export default function Register() {
   }
 
       return (
+        <Box sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
           <div className={s.container}>
-            <h1>Register page</h1>
+            <h1 className={s.title}>Register page</h1>
             <form className={s.form}
                 onSubmit={handleSubmit}
             >
-          <label className={s.label}>Name
+              <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel color='secondary' htmlFor="outlined-adornment-name" >Name</InputLabel>
+          <OutlinedInput
+          color='secondary'
+            id="outlined-adornment-name"
+            type='text'
+            value={name}
+            onChange={handleNameChange}
+            label="Name"
+          />
+          </FormControl>
+        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel color='secondary' htmlFor="outlined-adornment-email" >Email</InputLabel>
+          <OutlinedInput
+          color='secondary'
+            id="outlined-adornment-email"
+            type='email'
+            value={email}
+            onChange={handleEmailChange}
+            label="Email"
+          />
+        </FormControl>      
+<FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel color='secondary' htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+          
+            id="outlined-adornment-password"
+            type='password'
+            value={password}
+            onChange={handlePasswordChange}
+            label="Password"
+          />
+        </FormControl> 
+        <div className={s.btn}>
+        <Button color='error'  type="submit" variant="outlined">Sign up</Button>  
+        </div>     
+          {/* <label className={s.label}>Name
             <input className={s.input}
   type="text"
   name="name"
@@ -78,8 +117,9 @@ export default function Register() {
                 value={password}
                 onChange={handlePasswordChange}
               /></label>
-          <button className={s.btn} type="submit">Sign up</button>
+          <button className={s.btn} type="submit">Sign up</button> */}
           </form> 
           </div>
+          </Box>
         )
 }

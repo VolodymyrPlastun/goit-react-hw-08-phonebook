@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 // import logger from "redux-logger";
-import contactsReducer from './contactsReducer';
-import authReducer from './auth/auth-slice';
+import contactsReducer from './contacts/contactsReducer';
+import authReducer from './auth/authSlice';
 import {  FLUSH,
     REHYDRATE,
     PAUSE,
@@ -10,7 +10,7 @@ import {  FLUSH,
     REGISTER,
   persistStore,
 persistReducer } from 'redux-persist';
-import storage from "redux-persist/es/storage";
+import storage from "redux-persist/lib/storage";
 
 const middleware = [...getDefaultMiddleware({
     serializableCheck: {

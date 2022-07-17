@@ -1,43 +1,71 @@
-import Section from '../Section';
-// import ContactForm from 'ContactForm';
-import ContactList from 'ContactList';
-// import Filter from 'Filter';
-import HomePage from 'Pages/HomePage';
 import { useSelector, useDispatch } from 'react-redux';
-import {Outlet, Route, Routes} from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
+import { useEffect, lazy, Suspense } from 'react';
 import NavBar from 'NavBar';
-import Register from 'Pages/Register';
-import LoginPage from 'Pages/LoginPage';
-// import { useEffect } from 'react';
-// import { fetchContact } from '../redux/contactsOperation';
+import Section from '../Section';
+import Loader from 'Loader';
+import PrivateRoutes from 'Routes/PrivateRoutes';
+import PublicRoutes from 'Routes/PublicRoutes';
+import { getCurrentUser } from '../redux/auth/authOperations';
+import { getIsLoading } from 'redux/auth/authSelectors';
+
+const HomePage = lazy(() => import('Pages/HomePage'));
+const ContactsPage = lazy(() => import('Pages/ContactsPage'));
+const Register = lazy(() => import('Pages/Register'));
+const LoginPage = lazy(() => import('Pages/LoginPage'));
 
 export const App = () => {
-  // const contacts = useSelector(state => state.contacts.items);
-// const dispatch = useDispatch();
+// const contacts = useSelector(getContacts);
+const isLoading = useSelector(getIsLoading);
+// const token = useSelector(getToken);
 
-// useEffect(() => {
-//   dispatch(fetchContact())
-// }, [dispatch])
+const dispatch = useDispatch();
+
+useEffect(() => {
+
+    dispatch(getCurrentUser())
+ 
+}, [dispatch])
 
   return (
     <div>
-      <Section>
+      {isLoading ? <Loader /> : <Section>
         <NavBar/>
-
+        
+<Suspense fallback={<p>Loading</p>}>
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/login" element={<LoginPage/>}/>
-          {/* <Route path="/contacts" component={ContactList}/> */}
+       
+          <Route exact path="/" element={
+          <PublicRoutes>
+          <HomePage/>
+          </PublicRoutes>}>
+          </Route>
+
+          <Route path="/register" element={
+          <PublicRoutes restricted>
+          <Register/>
+          </PublicRoutes>}>
+          </Route>
+
+          <Route  path="/login" element={
+          <PublicRoutes restricted>
+          <LoginPage/>
+          </PublicRoutes>}>
+          </Route>
+
+          <Route path="/contacts" element={
+          <PrivateRoutes>
+          <ContactsPage/>
+          </PrivateRoutes>}>
+          </Route>
+          {/* <Route path="/register" element={<Register/>}/> */}
+          {/* <Route path="/login" element={<LoginPage/>}/> */}
+             {/* <Route exact path="/" element={<HomePage />} /> */}
+          {/* <Route path="/contacts" element={<ContactsPage/>}/> */}
+          
         </Routes>
-      </Section>
-      {/* <Section title="Phonebook">
-        <ContactForm />
-</Section>
-      <Section title="Contacts">
-        <Filter/>
-        {contacts.length !== 0 ? <ContactList /> : <p>Here will be your contacts</p>}
-        </Section> */}
+        </Suspense>
+      </Section>}
     </div>
   );
 };
