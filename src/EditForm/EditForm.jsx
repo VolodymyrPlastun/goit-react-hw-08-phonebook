@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TextField, IconButton} from "@mui/material";
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField, IconButton} from "@mui/material";
 import { useState } from "react";
 import { Edit } from "@mui/icons-material";
 import { useDispatch } from 'react-redux';
@@ -34,18 +34,11 @@ setOpen(false);
 
   return (
     <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button> */}
       <IconButton sx={{ bgcolor: 'tomato', marginRight: '10px' }} onClick={handleClickOpen} aria-label="edit"> <Edit sx={{ color: 'white'}}/></IconButton>
       
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle sx={{ textAlign: 'center' }}>Edit your contact</DialogTitle>
         <DialogContent>
-          {/* <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
-          </DialogContentText> */}
           <TextField
             autoFocus
             value={newName}
@@ -78,41 +71,3 @@ setOpen(false);
 }
 
 export default EditForm;
-/* <form className={s.form} */
-//       onSubmit={handleSubmit}
-//   >
-
-//   <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-// <InputLabel sx={{color: 'darkviolet'}} color='secondary' htmlFor="outlined-adornment-name" >Name</InputLabel>
-// <OutlinedInput
-// sx={{color: 'darkviolet'}}
-// color='secondary'
-//   id="outlined-adornment-name"
-//   type='text'
-//   value={name}
-//   onChange={handleNameChange}
-//   label="Name"
-//   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-//   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-//   required
-// />
-// </FormControl>      
-// <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-// <InputLabel sx={{color: 'darkviolet'}} color='secondary' htmlFor="outlined-adornment-number">Number</InputLabel>
-// <OutlinedInput
-// sx={{color: 'darkviolet'}}
-// color='secondary'
-//   id="outlined-adornment-number"
-//   type='number'
-//   value={number}
-//   onChange={handleNumberChange}
-//   label="Number"
-//   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-//   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-// required
-// />
-// </FormControl> 
-// <div className={s.btn}>
-// <Button sx={{color: 'white', bgcolor: 'tomato'}} color='warning'  type="submit" variant="contained">Add contact</Button>  
-// </div>     
-// </form> 

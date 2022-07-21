@@ -15,9 +15,6 @@ const items = createReducer([], {
 },
 [editContact.fulfilled]: (state, action) => {
     const obj = state.filter(({id}) => id !== action.payload.id)
-    console.log(action.payload)
-    // obj.name = action.payload.name;
-    // obj.number = action.payload.number;
     return [action.payload, ...obj]
 }
 
@@ -29,26 +26,8 @@ const filter = createReducer('', {
    }
 })
 
-// const error = createReducer(null, {
-//     [fetchContact.rejected]: (_, action) => action.payload,
-//     [fetchContact.pending]: () => null,
-// })
-
-// const loading = createReducer(false, {
-//     [fetchContactRequest]: () => true,
-//     [fetchContactSuccsess]: () => false,
-//     [fetchContactError]: () => false,
-//     [addContactRequest]: () => true,
-//     [addContactSuccsess]: () => false,
-//     [addContactError]: () => false,
-//     [removeContactRequest]: () => true,
-//     [removeContactSuccsess]: () => false,
-//     [removeContactError]: () => false,    
-// })
 
 export default combineReducers({
     items,
-    filter,
-    // error,
-    // loading
-})
+    filter
+});

@@ -1,14 +1,9 @@
 // import s from './ContactList.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import {removeContact} from '../redux/contacts/contactsOperation';
-import {  ListItem, ListItemAvatar, Avatar, IconButton, List, Box, Typography } from '@mui/material';
-import { PersonRemove, ContactPhoneOutlined} from '@mui/icons-material';
-// import EditForm from 'EditForm/EditForm';
+import { useSelector } from 'react-redux';
+import { List, Box } from '@mui/material';
 import ContactListItem from '../ContactListItem';
 
 export default function ContactList() {
-    const dispatch = useDispatch();
-
     const contacts = useSelector(state => state.contacts.items);
     const filter = useSelector(state => state.contacts.filter);
     const normalizedStr = filter.toLocaleLowerCase();

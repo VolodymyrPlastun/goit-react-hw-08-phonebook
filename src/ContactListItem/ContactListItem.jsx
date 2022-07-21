@@ -1,10 +1,10 @@
-import {  ListItem, ListItemAvatar, Avatar, IconButton, List, Box, Typography } from '@mui/material';
+import {  ListItem, ListItemAvatar, Avatar, IconButton, Typography } from '@mui/material';
 import EditForm from 'EditForm/EditForm';
 import s from '../ContactListItem/ContactListItem.module.css';
 import { PersonRemove, ContactPhoneOutlined} from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import {removeContact} from '../redux/contacts/contactsOperation';
-import { useState } from 'react';
+
 
 const ContactListItem = ({id, name, number}) => {
 
