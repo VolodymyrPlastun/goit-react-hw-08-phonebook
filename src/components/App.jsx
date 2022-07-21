@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes, Navigate} from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import NavBar from 'NavBar';
 import Section from '../Section';
@@ -24,7 +24,6 @@ const dispatch = useDispatch();
 useEffect(() => {
 
     dispatch(getCurrentUser())
- 
 }, [dispatch])
 
   return (
@@ -58,11 +57,8 @@ useEffect(() => {
           <ContactsPage/>
           </PrivateRoutes>}>
           </Route>
-          {/* <Route path="/register" element={<Register/>}/> */}
-          {/* <Route path="/login" element={<LoginPage/>}/> */}
-             {/* <Route exact path="/" element={<HomePage />} /> */}
-          {/* <Route path="/contacts" element={<ContactsPage/>}/> */}
-          
+
+          <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         </Suspense>
       </Section>}

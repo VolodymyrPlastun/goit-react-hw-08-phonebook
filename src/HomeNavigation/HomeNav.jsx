@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 const HomeNav = () => {
     // const contacts = useSelector(getContacts);
     const LoggedIn = useSelector(getLoggedIn);
-    console.log(LoggedIn);
+    // console.log(LoggedIn);
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -17,11 +17,12 @@ const HomeNav = () => {
       }
      
     }, [LoggedIn, dispatch])
-    // onClick={() => dispatch(fetchContact())}
     return (
         <div>
-        <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/">Home</NavLink>
+          <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/">Home</NavLink>
+        
         {LoggedIn && <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/contacts">Contacts</NavLink>}
+        
         
         </div>
     )

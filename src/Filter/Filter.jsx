@@ -14,9 +14,10 @@ dispatch(filterContaсts(evt.currentTarget.value))
     return (
         <Box sx={{ p: 2, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
          <h1 className={s.title}>Filter your contacts</h1>   
-        <FormControl sx={{ m: 1, width: '40ch' }} variant="outlined">
-        <InputLabel color='secondary' htmlFor="outlined-adornment-name" >Find contacts</InputLabel>
+        <FormControl sx={{ m: 1, width: '40ch', borderColor: 'tomato'}} variant="outlined">
+        <InputLabel sx={{color: 'darkviolet'}} color='secondary' htmlFor="outlined-adornment-name" >Find contacts</InputLabel>
         <OutlinedInput
+        sx={{color: 'darkviolet'}}
         color='secondary'
           id="outlined-adornment-name"
           type='text'

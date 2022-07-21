@@ -1,6 +1,7 @@
 import ContactForm from "ContactForm"
 import ContactList from "ContactList"
 import Filter from "Filter"
+// import Modal from "Modal";
 // import Section from "Section";
 // import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
@@ -8,13 +9,6 @@ import Filter from "Filter"
 
 
 const ContactsPage = () => {
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    
-    //     dispatch(getCurrentUser())
-     
-    // }, [dispatch])
 
     return (
         <>
@@ -24,6 +18,7 @@ const ContactsPage = () => {
         {/* <Section title="Contacts"> */}
         <Filter/>
         <ContactList/>
+        {/* <Modal></Modal> */}
         {/* </Section> */}
         </>
 

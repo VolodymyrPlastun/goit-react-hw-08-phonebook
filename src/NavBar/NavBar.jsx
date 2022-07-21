@@ -9,11 +9,10 @@ import s from './NavBar.module.css';
 export default function NavBar() {
 const LoggedIn = useSelector(getLoggedIn);
 // const isLoading = useSelector(getIsLoading);
-
+console.log(LoggedIn)
     return (  
         <header>
     <nav className={s.nav}>
-        {/* <ResponsiveAppBar/> */}
         <HomeNav/>
         {!LoggedIn ? <AuthNav/> : <UserMenu/>}
         {/* {LoggedIn ? <UserMenu/> : <AuthNav/>} */}

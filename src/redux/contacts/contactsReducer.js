@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {combineReducers} from 'redux';
-import { fetchContact, removeContact, addContact } from "./contactsOperation";
+import { fetchContact, removeContact, addContact, editContact } from "./contactsOperation";
 import {filterContaсts} from './contactsActions';
 
 const items = createReducer([], {
@@ -10,12 +10,16 @@ const items = createReducer([], {
     },
 
 [removeContact.fulfilled]: (state, action) => {
-   return [...state.filter(({id}) => id !== action.payload)]
-// const contactId = action.payload;
-// const idx = state.contacts.findIndex((item) => item.id === contactId);
-// state.contacts.splice(idx, 1);
+    
+   return state.filter(({id}) => id !== action.payload)
 },
-
+[editContact.fulfilled]: (state, action) => {
+    const obj = state.filter(({id}) => id !== action.payload.id)
+    console.log(action.payload)
+    // obj.name = action.payload.name;
+    // obj.number = action.payload.number;
+    return [action.payload, ...obj]
+}
 
 })
 
