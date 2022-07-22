@@ -14,8 +14,8 @@ const UserName = useSelector(getUserName);
       <div>
       <p className={s.description}>Enter account or register</p>
             <div className={s.buttonBox}>
-            <Button sx={{color: 'white', bgcolor: 'tomato', marginRight: '10px'}} color='warning'  type="submit" variant="contained" href="login">Sign in</Button>  
-            <Button sx={{color: 'white', bgcolor: 'tomato'}} color='warning'  type="submit" variant="contained" href="register">Sign up</Button>  
+            <Button sx={{color: 'white', bgcolor: 'tomato', marginRight: '10px'}} color='warning'  type="submit" variant="contained" href="/goit-react-hw-08-phonebook/login">Sign in</Button>  
+            <Button sx={{color: 'white', bgcolor: 'tomato'}} color='warning'  type="submit" variant="contained" href="/goit-react-hw-08-phonebook/register">Sign up</Button>  
             </div></div>
             : <div> <h2 className={s.description}>Hello, {UserName}</h2>
             <Link className={s.link} href='contacts' sx={{marginBottom: "20px", display: 'flex', justifyContent: 'center'}}>You can add your contacts here</Link></div>}

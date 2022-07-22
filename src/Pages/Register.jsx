@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import s from './Pages.module.css';
 import {  useDispatch } from 'react-redux';
-// import { addContact} from '../redux/contactsOperation';
 import { register } from '../redux/auth/authOperations';
 import { FormControl, InputLabel, OutlinedInput, Button, Box, Link, InputAdornment, IconButton} from '@mui/material';
 import { VisibilityOff, Visibility } from '@mui/icons-material';
@@ -17,11 +16,6 @@ export default function Register() {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    // if (contacts.find(
-    //         contact => contact.name.toLowerCase() === name.toLowerCase()
-    //       )) {
-    //         return alert(`${name} is already in contacts`);
-    //       }
       dispatch(register({name, email, password}));
       reset();
   };

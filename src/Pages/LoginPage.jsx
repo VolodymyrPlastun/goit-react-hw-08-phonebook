@@ -5,21 +5,17 @@ import { login} from '../redux/auth/authOperations';
 import {FormControl, InputLabel, OutlinedInput, Button, Box, Link, InputAdornment, IconButton} from '@mui/material';
 import { VisibilityOff, Visibility } from '@mui/icons-material';
 
+
 export default function LoginPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-//   const contacts = useSelector(state => state.contacts.items);
 
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    // if (contacts.find(
-    //         contact => contact.name.toLowerCase() === name.toLowerCase()
-    //       )) {
-    //         return alert(`${name} is already in contacts`);
-    //       }
+
       dispatch(login({email, password}))
       reset();
   };

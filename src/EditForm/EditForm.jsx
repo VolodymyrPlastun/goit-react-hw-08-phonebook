@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Edit } from "@mui/icons-material";
 import { useDispatch } from 'react-redux';
 import { editContact } from "redux/contacts/contactsOperation";
+import PropTypes from 'prop-types';
+
 
 const EditForm = ({name, number, id}) => {
   const [open, setOpen] = useState(false);
@@ -20,6 +22,9 @@ const EditForm = ({name, number, id}) => {
 
   const changeContacts = (evt) => {
     evt.preventDefault();
+    if(name === newName && number === newNumber) {
+      return alert('You need to change contact')
+    }
 dispatch(editContact({id, name: newName, number: newNumber}));
 setOpen(false);
   }
@@ -68,6 +73,12 @@ setOpen(false);
       </Dialog>
     </div>
   );
+}
+
+EditForm.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 }
 
 export default EditForm;

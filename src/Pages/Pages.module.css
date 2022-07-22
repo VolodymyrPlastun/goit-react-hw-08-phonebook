@@ -44,12 +44,8 @@ padding: 20px;
 
 
 .btn {
-    /* border: 1px solid grey;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #444; */
         display: flex;
         flex-direction: column;
-    /* margin-top: 10px; */
     margin-left: auto;
     margin-right: auto;
 

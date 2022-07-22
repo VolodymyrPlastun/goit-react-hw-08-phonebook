@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getLoggedIn } from "redux/auth";
+import { getLoggedIn } from "../redux/auth/authSelectors";
 
 const PublicRoutes = ({children, restricted = false, redirectTo = "/contacts"}) => {
     const isLoggedIn = useSelector(getLoggedIn);

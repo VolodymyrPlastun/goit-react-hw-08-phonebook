@@ -8,6 +8,7 @@ import PrivateRoutes from 'Routes/PrivateRoutes';
 import PublicRoutes from 'Routes/PublicRoutes';
 import { getCurrentUser } from '../redux/auth/authOperations';
 import { getIsLoading } from 'redux/auth/authSelectors';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('Pages/HomePage'));
 const ContactsPage = lazy(() => import('Pages/ContactsPage'));
@@ -15,9 +16,7 @@ const Register = lazy(() => import('Pages/Register'));
 const LoginPage = lazy(() => import('Pages/LoginPage'));
 
 export const App = () => {
-// const contacts = useSelector(getContacts);
 const isLoading = useSelector(getIsLoading);
-// const token = useSelector(getToken);
 
 const dispatch = useDispatch();
 
@@ -60,6 +59,7 @@ useEffect(() => {
 
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
+        <Toaster position="top-right"/>
         </Suspense>
       </Section>}
     </div>

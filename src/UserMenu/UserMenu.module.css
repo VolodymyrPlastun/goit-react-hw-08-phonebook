@@ -3,11 +3,7 @@
     align-items: center;
 }
 
-.text {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
+
 
 .avatar {
     margin-right: 10px;

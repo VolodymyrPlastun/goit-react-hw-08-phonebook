@@ -23,12 +23,8 @@ dispatch(filterContaсts(evt.currentTarget.value))
           type='text'
           value={value}
           onChange={filterChange}
-        //   label="Name"
         />
         </FormControl>  
         </Box>
-    // <label className={s.label}>Find contacts by name
-    //     <input className={s.input} type="text" name='filter' value={value} onChange={filterChange} />
-    // </label>
 );
 } 

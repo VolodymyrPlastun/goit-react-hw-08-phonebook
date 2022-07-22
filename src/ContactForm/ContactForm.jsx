@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addContact} from '../redux/contacts/contactsOperation';
 import { getContacts } from 'redux/contacts/contactsSelectors';
 import {FormControl, InputLabel, OutlinedInput, Button, Box} from '@mui/material';
-
+import toast from 'react-hot-toast';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -17,15 +17,13 @@ export default function ContactForm() {
   const handleSubmit = evt => {
     evt.preventDefault();
     if (contacts.find(
-            contact => contact.name.toLowerCase() === name.toLowerCase()
+            contact => contact.name.toLowerCase().trim() === name.toLowerCase().trim()
           )) {
-            return  alert(`${name} is already in contacts`);
-
-            
-            // alert(`${name} is already in contacts`);
+            return  toast.error(`${name} is already in contacts`);
           }
       dispatch(addContact({name, number}))
       reset();
+      toast.success('Contact added successfully');
   };
 
     const reset = () => {
@@ -41,11 +39,10 @@ export default function ContactForm() {
     setNumber(evt.target.value);
   }
 
-      return (
+return (
 
 <Box sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
 <div className={s.container}>
-  {/* <h1 className={s.title}>Login page</h1> */}
   <form className={s.form}
       onSubmit={handleSubmit}
   >

@@ -1,14 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import s from '../NavBar/NavBar.module.css';
+import s from '../HomeNav/HomeNav.module.css';
 import { fetchContact } from 'redux/contacts/contactsOperation';
 import { getLoggedIn } from 'redux/auth/authSelectors';
 import { useEffect } from 'react';
 
 const HomeNav = () => {
-    // const contacts = useSelector(getContacts);
     const LoggedIn = useSelector(getLoggedIn);
-    // console.log(LoggedIn);
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -17,13 +15,12 @@ const HomeNav = () => {
       }
      
     }, [LoggedIn, dispatch])
+    
     return (
         <div>
-          <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/">Home</NavLink>
-        
-        {LoggedIn && <NavLink className={({isActive}) => isActive ? s.active : s.link} to="/contacts">Contacts</NavLink>}
-        
-        
+          <NavLink className={({isActive}) => isActive ? s.active : s.homeLink} to="/">Home</NavLink>
+        {LoggedIn && <NavLink className={({isActive}) => isActive ? s.active : s.homeLink} to="/contacts">Contacts</NavLink>}
+
         </div>
     )
 };

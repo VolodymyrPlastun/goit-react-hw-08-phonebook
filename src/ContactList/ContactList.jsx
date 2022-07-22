@@ -1,4 +1,3 @@
-// import s from './ContactList.module.css';
 import { useSelector } from 'react-redux';
 import { List, Box } from '@mui/material';
 import ContactListItem from '../ContactListItem';
@@ -17,10 +16,8 @@ export default function ContactList() {
         <Box sx={{ p: 2, display: 'flex', justifyContent: 'center', }}>
             {visibleContacts.length !== 0 && <List sx={{width: '50ch'}}>
                 {visibleContacts.map(({id, name, number}) => 
-                <ContactListItem key={name} id={id} name={name} number={number}/>)}
+                <ContactListItem key={id} id={id} name={name} number={number}/>)}
             </List>}
-            
-
      
 </Box>
 )
